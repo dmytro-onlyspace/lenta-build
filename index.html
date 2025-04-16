@@ -147,14 +147,14 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = "LOADER_FILE_URL";
+      var loaderUrl = "lenta-build.loader.js";
       var config = {
         devicePixelRatio: getDpi(),
-        dataUrl: "DATA_FILE_URL",
-        frameworkUrl: "FRAMEWORK_FILE_URL",
-        codeUrl: "WASM_FILE_URL",
+        dataUrl: "lenta-build.data.unityweb",
+        frameworkUrl: "lenta-build.framework.js.unityweb",
+        codeUrl: "lenta-build.wasm.unityweb",
         symbolsUrl: buildUrl + "/",
-        streamingAssetsUrl: "FOLDER_NAME_STREAMING_ASSETS",
+        streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Test Project WebGl OLD",
         productVersion: "0.1",
