@@ -1,144 +1,49 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <!--fix mobile input for ios (screen zoom issue) -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=0"
-    />
-    <!---->
-    <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>MegaMod</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico" />
-    <link rel="stylesheet" href="TemplateData/style.css" />
-    <script type="text/javascript" src="js/unity.js"></script>
-    <script type="text/javascript" src="js/helpers.js"></script>
-    <script type="text/javascript" src="js/resizer.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-SGFC31VKKL"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-SGFC31VKKL");
-    </script>
-    <script src="js/MassiveRealm/client-browser.js"></script>
-    <script src="js/MassiveRealm/client.js"></script>
-    <script src="js/MassiveRealm/client-es.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
-    <script
-      type="text/javascript"
-      src="https://infirc.com/cdn/c7fa7451-6f95-4815-ac32-b8cc2537837a?uuid=b18d51c7-57f5-4dd0-baa7-ae0a47552e7a"
-      data-awssuidacr="b18d51c7-57f5-4dd0-baa7-ae0a47552e7a"
-    ></script>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity Web Player | Test Project WebGl OLD</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
-    <div class="loader-wrapper">
-      <div class="loader">
-        <img
-          class="megamod-logo"
-          src="TemplateData/logo.jpg"
-          alt="loader logo"
-        />
-        <div class="progress-bar">
-          <div class="progress-fill"></div>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
         </div>
-        <div class="progress-text">0%</div>
+      </div>
+      <div id="unity-warning"> </div>
+      <div id="unity-footer">
+        <div id="unity-logo-title-footer"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">Test Project WebGl OLD</div>
       </div>
     </div>
-    <div id="unity-container" style="width: 100%; height: 100%">
-      <!-- <div id="loader_canvas_div">
-				<img class="shadow" id="SPLASH_SCREEN" style="position: absolute;">
-				<canvas class="dots" id="loader_canvas" width=1280 height=720 style="z-index: 2; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover"></canvas>
-			</div> -->
-      <canvas
-        id="unity-canvas"
-        width="auto"
-        height="auto"
-        style="
-          z-index: 1;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          opacity: 0;
-        "
-      ></canvas>
-      <img
-        class="shadow"
-        id="ROTATE_SCREEN_ERROR"
-        width="100%"
-        height="100%"
-        style="position: absolute; display: none; z-index: 3"
-        src="TemplateData/rotate_screen.png"
-      />
-      <div id="unity-warning"></div>
-    </div>
-
-    <script
-      type="text/javascript"
-      src="js/ClientDataJS/ua-parser.min.js"
-    ></script>
-    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.js"></script> -->
-    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.js"></script> -->
-    <script
-      type="text/javascript"
-      src="js/libraries/unpkg.com_js-cookie@3.0.5_dist_js.cookie.min.js"
-    ></script>
-    <script type="text/javascript" src="js/app_version.js"></script>
-    <script type="text/javascript" src="js/analytics_constants.js"></script>
-    <script type="text/javascript" src="js/redirects.js"></script>
-    <script type="text/javascript" src="js/firebase.js"></script>
-    <script type="text/javascript" src="js/discord.js"></script>
-    <script type="text/javascript" src="js/amplitude.js"></script>
-    <script type="text/javascript" src="js/analytics.js"></script>
-    <script type="text/javascript" src="js/animated_loader.js"></script>
-    <!-- <script type="text/javascript" src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-		<script type="text/javascript" src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script> -->
-    <!-- <script type="text/javascript" src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
-		<script type="text/javascript" src="https://www.gstatic.com/firebasejs/9.15.0/firebase-auth-compat.js"></script> -->
     <script>
-      //audio moment
-
-      //var audio = new Audio('TemplateData/megasound2.mp3');
-      //audio.loop = true;
-      //audio.play();
-
-      //audio moment
-      // firebaseInit();
-      // var num = Math.floor(Math.random() * 2); // 0...6
-      // showLoader("TemplateData/SPLASH_SCREEN_JPG" + (num + 1) + ".jpg");
-      var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
-      // var loader_canvas = document.querySelector("#loader_canvas");
-      // var SPLASH_SCREEN = document.querySelector("#SPLASH_SCREEN");
-      var warningBanner = document.querySelector("#unity-warning");
 
-      ResizerInit();
-
+      // Shows a temporary message banner/ribbon for a few seconds, or
+      // a permanent error message on top of the canvas if type=='error'.
+      // If type=='warning', a yellow highlight color is used.
+      // Modify or remove this function to customize the visually presented
+      // way that non-critical warnings and error messages are presented to the
+      // user.
       function unityShowBanner(msg, type) {
+        var warningBanner = document.querySelector("#unity-warning");
         function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length
-            ? "block"
-            : "none";
+          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
         }
-        var div = document.createElement("div");
+        var div = document.createElement('div');
         div.innerHTML = msg;
         warningBanner.appendChild(div);
-        if (type == "error") div.style = "background: red; padding: 10px;";
+        if (type == 'error') div.style = 'background: red; padding: 10px;';
         else {
-          if (type == "warning")
-            div.style = "background: yellow; padding: 10px;";
-          setTimeout(function () {
+          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+          setTimeout(function() {
             warningBanner.removeChild(div);
             updateBannerVisibility();
           }, 5000);
@@ -147,436 +52,76 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = "Build/lenta-build.loader.js";
+      var loaderUrl = buildUrl + "/lenta-build.loader.js";
       var config = {
-        devicePixelRatio: getDpi(),
-        dataUrl: "Build/lenta-build.data.unityweb",
-        frameworkUrl: "Build/lenta-build.framework.js.unityweb",
-        codeUrl: "Build/lenta-build.wasm.unityweb",
-        symbolsUrl: buildUrl + "/",
-        streamingAssetsUrl: "StreamingAssets/",
+        arguments: [],
+        dataUrl: buildUrl + "/lenta-build.data.unityweb",
+        frameworkUrl: buildUrl + "/lenta-build.framework.js.unityweb",
+        codeUrl: buildUrl + "/lenta-build.wasm.unityweb",
+        streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Test Project WebGl OLD",
         productVersion: "0.1",
         showBanner: unityShowBanner,
-        cacheControl: function (url) {
-          // Caching enabled for .data and .bundle files.
-          // Revalidate if file is up to date before loading from cache
-          //if (url.match(/\.data/) || url.match(/\.bundle/) || url.match(/\.wasm/)) {
-          if (url.match(/\.bundle/)) {
-            return "must-revalidate";
-            //return "immutable";
-          }
-
-          // // Caching enabled for .mp4 and .custom files
-          // // Load file from cache without revalidation.
-          if (url.match(/\.data/) || url.match(/\.wasm/)) {
-            return "immutable";
-          }
-          // // Caching enabled for .mp4 and .custom files
-          // // Load file from cache without revalidation.
-          // if (url.match(/\.mp4/) || url.match(/\.custom/)) {
-          //     return "immutable";
-          // }
-
-          // Disable explicit caching for all other files.
-          // Note: the default browser cache may cache them anyway.
-          return "no-store";
-        },
       };
 
-      if (window.innerWidth * 0.8 * (720 / 1280) > window.innerHeight * 0.8) {
-        canvas.style.height = "100%";
-        canvas.style.width = "100%";
+      // By default, Unity keeps WebGL canvas render target size matched with
+      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
+      // Set this to false if you want to decouple this synchronization from
+      // happening inside the engine, and you would instead like to size up
+      // the canvas DOM size and WebGL render target sizes yourself.
+      // config.matchWebGLToCanvasSize = false;
+
+      // If you would like all file writes inside Unity Application.persistentDataPath
+      // directory to automatically persist so that the contents are remembered when
+      // the user revisits the site the next time, uncomment the following line:
+      // config.autoSyncPersistentDataPath = true;
+      // This autosyncing is currently not the default behavior to avoid regressing
+      // existing user projects that might rely on the earlier manual
+      // JS_FileSystem_Sync() behavior, but in future Unity version, this will be
+      // expected to change.
+
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
+
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+        document.querySelector("#unity-container").className = "unity-mobile";
+        canvas.className = "unity-mobile";
+
+        // To lower canvas resolution on mobile devices to gain some
+        // performance, uncomment the following line:
+        // config.devicePixelRatio = 1;
+
+
       } else {
-        canvas.style.height = "100%";
-        canvas.style.width = "100%";
+        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
       }
 
-      //loader_canvas.style.height = canvas.style.height;
-      //loader_canvas.style.width = canvas.style.width;
-      //SPLASH_SCREEN.style.height = canvas.style.height;
-      //SPLASH_SCREEN.style.width = canvas.style.width;
+      document.querySelector("#unity-loading-bar").style.display = "block";
 
       var script = document.createElement("script");
       script.src = loaderUrl;
-      var myGameInstance = null;
-
-      startProgressBar();
       script.onload = () => {
-        sendEvent(Unity_WebGL_Hello_world, basedEventProperty);
         createUnityInstance(canvas, config, (progress) => {
-          trackProgress(progress);
-          setEndProgressValue(progress);
-        })
-          .then((unityInstance) => {
-            sendEvent(Unity_WebGL_Build_Loaded, basedEventProperty);
-            window.unityInstance = unityInstance;
-            myGameInstance = unityInstance;
-          })
-          .catch((message) => {
-            errorProperty = { Error: message };
-            sendEvent(ProgressEnum.Error_Initialization, errorProperty);
-            alert(message);
-          });
-      };
+          document.querySelector("#unity-progress-bar-full").style.width = 100 * progress + "%";
+              }).then((unityInstance) => {
+                document.querySelector("#unity-loading-bar").style.display = "none";
+                document.querySelector("#unity-fullscreen-button").onclick = () => {
+                  unityInstance.SetFullscreen(1);
+                };
+
+              }).catch((message) => {
+                alert(message);
+              });
+            };
+
       document.body.appendChild(script);
 
-
-
-
-      let playerUpdates = []; // Очередь для обновлений игроков
-      const tickRate = 1000 / 5; // Тикрейт игры (1/6 секунды)
-
-
-      // Функция для получения обновлений позиции игроков
-      function SetUpdatePlayerPosition(playerData) {
-          playerUpdates.push(playerData); // Добавляем данные в очередь
-      }
-      // Функция для отправки пачки данных
-      function sendBatchToUnity() {
-      if (playerUpdates.length > 0) {
-          // Собираем пачку и конвертируем в JSON
-          let batch = JSON.stringify({ players: playerUpdates });
-        
-          // Отправляем пачку данных в Unity
-          myGameInstance.SendMessage('MassiveRealm', 'HandlePlayerUpdates', batch);
-
-          // Очищаем очередь после отправки
-          playerUpdates = [];
-        }
-      }
-      let totalBytes = 0;
-      let totalMessages = 0;
-      let bytesPerSecond = 0;
-      let messagesPerSecond = 0;
-
-      let bytesThisSecond = 0;
-      let messagesThisSecond = 0;
-
-      let _pingDelay = 0;
-
-      setInterval(() => {
-    // Копируем накопленные значения в переменные "за секунду"
-    bytesPerSecond = bytesThisSecond;
-    messagesPerSecond = messagesThisSecond;
-
-    // Отправляем данные в Unity
-    sendToUnity(bytesPerSecond, totalBytes, messagesPerSecond, totalMessages);
-
-    // Обнуляем значения для следующего интервала
-    bytesThisSecond = 0;
-    messagesThisSecond = 0;
-}, 1000);
-
-// Функция для отправки данных в Unity
-function sendToUnity(bytesPerSecond, totalBytes, messagesPerSecond, totalMessages) {
-    // Вызовите метод Unity для получения данных
-    if (typeof unityInstance !== 'undefined' && unityInstance) {
-        
-        myGameInstance.SendMessage(
-              "MassiveRealm",
-              "SetPingDelay",
-              Math.floor(_pingDelay)
-            );
-            myGameInstance.SendMessage(
-              "MassiveRealm",
-              "SetTotalBytes",
-              Math.floor(totalBytes)
-            );
-            myGameInstance.SendMessage(
-              "MassiveRealm",
-              "SetPerSecBytes",
-              Math.floor(bytesPerSecond)
-            );
-            myGameInstance.SendMessage(
-              "MassiveRealm",
-              "SetTotalPackages",
-              Math.floor(totalMessages)
-            );
-            myGameInstance.SendMessage(
-              "MassiveRealm",
-              "SetPerSecondPackages",
-              Math.floor(messagesPerSecond)
-            );
-    }
-}
-
-      window.MR = new window.MassiveRealmClient.Client({
-        debug: true,
-        url: "https://25b2-3b46-1397.massiverealm.net/",
-        publicKey: "sl-FndPFSudW9oArD",
-
-
-
-        roomConfig: {
-          game: {
-            "serverCommands": {
-        "Ping": {
-            "id": 10,
-            "params": [
-                {
-                    "name": "commandId",
-                    "type": "uint8"
-                },
-                {
-                    "name": "number",
-                    "type": "uint8"
-                }
-            ]
-        },
-        "UpdatePosition": {
-            "id": 11,
-            "params": [
-                {
-                    "name": "commandId",
-                    "type": "uint8"
-                },
-                {
-                    "name": "x",
-                    "type": "float64"
-                },
-                {
-                    "name": "y",
-                    "type": "float64"
-                },
-                {
-                    "name": "z",
-                    "type": "float64"
-                },
-                {
-                    "name": "y_rot",
-                    "type": "float64"
-                }
-            ]
-        },
-        "DeathEffect": {
-            "id": 12,
-            "params": [
-                {
-                    "name": "commandId",
-                    "type": "uint8"
-                }
-            ]
-        }
-    },
-    "clientCommands": {
-        "Pong": {
-            "id": 10,
-            "params": [
-                {
-                    "name": "commandId",
-                    "type": "uint8"
-                },
-                {
-                    "name": "number",
-                    "type": "uint8"
-                }
-            ]
-        },
-        "DeletePlayer": {
-            "id": 11,
-            "params": [
-                {
-                    "name": "commandId",
-                    "type": "uint8"
-                },
-                {
-                    "name": "id",
-                    "type": "string8"
-                }
-            ]
-        },
-        "UpdatePlayer": {
-            "id": 12,
-            "params": [
-                {
-                    "name": "commandId",
-                    "type": "uint8"
-                },
-                {
-                    "name": "player",
-                    "type": "model:Player"
-                }
-            ]
-        },
-        "DeathPlayer": {
-            "id": 13,
-            "params": [
-                {
-                    "name": "commandId",
-                    "type": "uint8"
-                },
-                {
-                    "name": "__id",
-                    "type": "string8"
-                }
-            ]
-        },
-        "MyInfo": {
-            "id": 14,
-            "params": [
-                {
-                    "name": "commandId",
-                    "type": "uint8"
-                },
-                {
-                    "name": "id",
-                    "type": "string8"
-                }
-            ]
-        },
-        "UpdatePlayers": {
-            "id": 15,
-            "params": [
-                {
-                    "name": "commandId",
-                    "type": "uint8"
-                },
-                {
-                    "name": "players",
-                    "type": "array",
-                    "array_of": "model:Player"
-                }
-            ]
-        }
-    },
-    "models": {
-        "Player": {
-            "params": [
-                {
-                    "name": "id",
-                    "type": "string8"
-                },
-                {
-                    "name": "x",
-                    "type": "float64"
-                },
-                {
-                    "name": "y",
-                    "type": "float64"
-                },
-                {
-                    "name": "z",
-                    "type": "float64"
-                },
-                {
-                    "name": "y_rot",
-                    "type": "float64"
-                }
-            ]
-        }
-    }
-          },
-        },
-
-
-
-        
-        onConnect: () => {
-          console.log("Connected_html");
-
-          // Joining the room after connecting
-          window.MR.joinRoom({
-            alias: "test-room", // Room alias as created in the console
-            // Use room id to join a specific room
-            id: "room-1",
-          });
-        },
-        onDisconnect: (error) => {
-          this.joined = false;
-          console.log("Disconnected", error);
-
-          myGameInstance.SendMessage("MassiveRealm", "OnDisconnectedFromRealm");
-        },
-        onJoinRoom: (roomAlias, roomId, isForwarded) => {
-          console.log("Joined to room_html", roomId);
-
-          this.joined = true;
-          // To notify other players that I have joined
-          myGameInstance.SendMessage("MassiveRealm", "OnConnectedToRealm");
-          sendPing();
-        },
-        onError: (error) => {
-          console.log("Connection error", error);
-        },
-        onMessage: function(buffer) {
-            const messageSize = buffer.byteLength; // Размер сообщения в байтах
-
-    // Обновляем счетчики
-    totalBytes += messageSize;
-    totalMessages++;
-    bytesThisSecond += messageSize;
-    messagesThisSecond++;
-
-        },
-        onCommand: (command, data) => {
-          
-
-          // Add a new player to the scene or move if existing
-          //if (command == "UpdatePlayer") {
-          //  SetUpdatePlayerPosition(data);
-          //}
-          // Remove player from the scene
-          if(command == "UpdatePlayers")
-        {
-          myGameInstance.SendMessage("MassiveRealm", "BatchPlayersUpdate",JSON.stringify(data));
-        }
-          else if (command == "DeletePlayer") {
-            myGameInstance.SendMessage("MassiveRealm", "SetDeletePlayer",data.id);
-          } else if (command == "Pong") {
-            // Получаем текущее время
-            const pongTime = new Date().getTime();
-
-            // Рассчитываем разницу (время задержки в миллисекундах)
-            _pingDelay = pongTime - pingStartTime;
-
-            
-
-            // Запускаем следующий пинг не раньше чем через 1.5 секунды
-            setTimeout(() => {
-              sendPing();
-            }, 1500);
-          }else if (command == "DeathPlayer")
-          {
-            myGameInstance.SendMessage(
-              "MassiveRealm",
-              "MR_GET_RPC_Death",
-              data.__id
-            );
-          }
-          else if(command =="MyInfo")
-          {
-            myGameInstance.SendMessage(
-              "MassiveRealm",
-              "MyInfoGet",
-              data.id
-            );
-          }
-        },
-      });
-
-      let pingStartTime = 0;
-
-      function sendPing() {
-        const number = Math.floor(Math.random() * 128) + 1;
-        //appendLog(`Sending Ping with number ${number}`);
-
-        // Запоминаем текущее время, когда отправляем пинг
-        pingStartTime = new Date().getTime();
-
-        // Send a command to the server
-        window.MR.emit("Ping", { number });
-      }
-      function connect() {
-        // Connect to the server
-        window.MR.connect();
-      }
-
-      function disconnect() {
-        // Disconnect from the server
-        window.MR.disconnect();
-      }
     </script>
   </body>
 </html>
