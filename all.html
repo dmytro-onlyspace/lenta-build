@@ -20,7 +20,7 @@
         if (item.type === 'dir') { // только папки
           const li = document.createElement('li');
           const a = document.createElement('a');
-          a.href = `10/${item.name}/`; // ссылка на папку
+          a.href = `${item.name}/`; // ссылка на папку
           a.textContent = item.name + '/';
           li.appendChild(a);
           ul.appendChild(li);
