@@ -183,13 +183,32 @@
         },
       };
 
-      if (window.innerWidth * 0.8 * (720 / 1280) > window.innerHeight * 0.8) {
-        canvas.style.height = "100%";
-        canvas.style.width = "100%";
-      } else {
-        canvas.style.height = "100%";
-        canvas.style.width = "100%";
-      }
+      var container = document.querySelector("#unity-container");
+  var canvas = document.querySelector("#unity-canvas");
+
+  function adjustCanvasAspect() {
+    // расчёт соотношения 9:19.5
+    const aspect = 9 / 19.5;
+    // максимально доступная высота
+    const H = window.innerHeight;
+    // ширина по формуле
+    const W = H * aspect;
+
+    // ставим canvas по высоте на весь экран
+    canvas.style.height = H + "px";
+    // ширина по вычислению
+    canvas.style.width  = W + "px";
+
+    // центрирование по горизонтали внутри контейнера
+    canvas.style.position   = "absolute";
+    canvas.style.top        = "0";
+    canvas.style.left       = "50%";
+    canvas.style.transform  = "translateX(-50%)";
+  }
+
+  // вешаем на ресайз и вызываем сразу
+  window.addEventListener("resize", adjustCanvasAspect);
+  adjustCanvasAspect();
 
       //loader_canvas.style.height = canvas.style.height;
       //loader_canvas.style.width = canvas.style.width;
