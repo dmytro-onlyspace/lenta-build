@@ -1,0 +1,152 @@
+html {
+    height: 100%;
+}
+
+body {
+	overflow: hidden; 
+    margin: 0;
+    height: 100%;
+	background-color: #FFFFFF;
+	/*
+    background: url(bg.jpg);
+    background-size: cover;
+	*/
+}
+
+.shadow {
+    box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+    border: 2px solid rgb(255, 255, 255);
+    padding: 0px;
+}
+
+canvas.dots {
+    position: absolute;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+    border: 2px solid rgb(255, 255, 255);
+    padding: 0px;
+}
+
+#unity-container {
+    position: absolute
+}
+
+#unity-container.unity-desktop {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+
+#unity-container.unity-mobile {
+    width: 100%;
+    height: 100%
+}
+
+#unity-canvas {
+    background: #231F20
+}
+
+.unity-mobile #unity-canvas {
+    width: 100%;
+    height: 100%
+}
+
+#unity-footer {
+    position: relative
+}
+
+.unity-mobile #unity-footer {
+    display: none
+}
+
+#unity-warning {
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translate(-50%);
+    background: white;
+    padding: 10px;
+    display: none
+}
+
+/*
+fix mobile input for ios (screen zoom issue)
+*/
+input
+{
+    /* enlarge by 16/12 = 133.33% */
+    border-radius: 6.666666667px;
+    font-size: 16px;
+    line-height: 26.666666667px;
+    padding: 6.666666667px;
+    width: 133.333333333%;
+    /* scale down by 12/16 = 75% */
+    transform: scale(0.75);
+    transform-origin: left top;
+    /* remove extra white space */
+    margin-bottom: -10px;
+    margin-right: -33.333333333%;
+}
+
+.loader-wrapper {
+    position: fixed;
+    top: -5%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.megamod-logo {
+    width: 128px;
+    height: 128px;
+}
+
+.loader {
+    text-align: center;
+    /* background: #fff; */
+    padding: 20px;
+    /* border-radius: 10px; */
+    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); */
+}
+
+.progress-bar {
+    background: #D7D3D3;
+    height: 3px;
+    /* border-radius: 5px; */
+    /* margin-top: 10px; */
+	margin-top: 0px;
+    position: relative;
+}
+
+.progress-fill {
+    background: #2800D7;
+    height: 100%;
+    /* border-radius: 5px; */
+    width: 0;
+    /* transition: width 1s; */
+}
+
+.progress-text {
+    color: #2800D7;
+    margin-top: 10px;
+	font-size: 8px;
+	font-family: arial;
+	font-weight: bold;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.fade-out {
+    animation: fadeOut 1s ease-out forwards;
+}
