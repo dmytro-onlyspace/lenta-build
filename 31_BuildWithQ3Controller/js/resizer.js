@@ -12,11 +12,7 @@ function ResizerInit() {
 	window.addEventListener('load', resizerOnLoaded);
     window.addEventListener('resize', resizeCanvas);
 
-	if (resizer_is_mobile) {
-		let portrait = window.matchMedia("(orientation: portrait)");
-		portrait.addEventListener("change", function(e) { OnOrientationChanged(e.matches); });
-	}
-
+	
 	resizerOnLoaded();
 }
 
@@ -24,7 +20,7 @@ function resizerOnLoaded() {
 	if (!resizerInitialized) {
 		resizerInitialized = true;
 		OnWindowSizeChanged(window.innerWidth, window.innerHeight);
-		OnOrientationChanged(checkVerticalOrientation(window.innerWidth, window.innerHeight));
+		
 	}
 }
 
